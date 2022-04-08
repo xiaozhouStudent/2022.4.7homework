@@ -1,0 +1,86 @@
+练习1：
+public class Test{
+    public static void swap(int i){
+        i=6;
+        System.out.println("swap方法中的参数i的值："+i);
+    }
+
+    public static void main(String[] args) {
+        int a=0;
+        swap(a);
+        System.out.println("main方法中a的值："+a);
+    }
+}
+练习2：
+public class Test{
+    public static void swap(DataSwap ds1) {
+        ds1.a=6;
+        System.out.println("在swap方法中，ds1.a的值是："+ds1.a);
+    }
+
+    public static void main(String[] args) {
+        DataSwap ds=new DataSwap();
+        System.out.println("调用swap方法之前ds.a的值："+ds.a);
+        swap(ds);
+        System.out.println("调用swap方法之后s.a的值："+ds.a);
+    }
+}
+------------------------------------------------------------------------------public class DataSwap {
+    public int a;
+}
+练习3：
+public class Person {
+//    public int age;//这样的情况程序的逻辑是对的，但是不符合正常逻辑
+
+    //我们需要对这样不能让调用者随意使用的属性做封装和隐藏
+    private int age;//给age隐藏了
+    public  void printAge(){
+        System.out.println("年龄是："+age);
+    }
+    public int getAge(){
+        return age;
+    }
+    public void  sitAge(int a){
+        if(a<160&&a>=0){
+            age=a;
+        }
+        else
+            System.out.println("输入的年龄有误！");
+    }
+}
+-----------------------------------------------------------------
+public class Test {
+    public static void main(String[] args) {
+        Person p=new Person();
+       // p.age=-100;//这样的情况程序的逻辑是对的，但是不符合正常逻辑
+        //这种情况是把类的属性开发出来，让调用者随意使用，这样会有问题
+        p.sitAge(66);
+        p.printAge();
+    }
+}
+练习4：
+public class Person4 {
+    private int age;
+    private void getAge(){
+        System.out.println(age);
+    }
+    public void test(){
+        getAge();
+    }
+}
+public class Test{
+    public static void main(String[] args) {
+        Person4 p4=new Person4();
+       // p4.getAge  //触发不了
+    }
+}
+练习5.：
+public class TestPerson {
+    public static void main(String[] args) {
+        Person P=new Person();
+        P.setAge(6);
+        System.out.println("================");
+        P.setAge(-9);
+    }
+}
+
