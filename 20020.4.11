@@ -1,0 +1,54 @@
+习题1：
+public class Test{
+    public static void main(String[] args) {
+        Point p1=new Point();
+        p1.zb(1,6,10);
+        p1.printPoint();
+    }
+}
+----------------------------------------------------------
+public class Point {
+    public int a,b,c;
+    public int zb(int x,int y,int z){
+        a=x;
+        b=y;
+        c=z;
+        return 0;
+    }
+     public void printPoint(){
+         System.out.println("该点的坐标为："+"("+a+","+b+","+c+")");
+    }
+}
+
+习题2：
+public class TestTriAngle {
+    public static void main(String[] args) {
+        TriAngle t1=new TriAngle();
+        TriAngle t2=new TriAngle();
+        t1.setS(-5,-6);
+        t2.setS(5,6);
+        t1.printArea();
+        t2.printArea();
+
+    }
+}
+--------------------------------------------------------
+public class TriAngle {
+    private int base,height;
+    public double S;
+    public void printArea(){
+        S=base*height*0.5;
+        System.out.println("三角形的面积："+S);
+    }
+    public int getS(){
+        return 0;
+    }
+    public void setS(int a,int b){
+        if(a>0&&b>0){
+            base=a;
+            height=b;
+        }
+        else
+            System.out.println("输入的长度有误！");
+    }
+}
