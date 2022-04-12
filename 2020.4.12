@@ -1,0 +1,94 @@
+习题1：
+
+public class Student {
+	//姓名
+	private String name;
+	//年龄
+	private int age;
+	
+	//姓名获取值
+	public String getName() {
+		return name;
+	}
+	
+	//姓名设置值
+	public void setName(String n) {
+		name = n;
+	}
+	
+	//年龄获取值
+	public int getAge() {
+		return age;
+	}
+	
+	//年龄设置值
+	public void setAge(int a) {
+		age = a;
+	}
+}
+ 
+//测试类
+public class StudentTest {
+	public static void main(String[] args) {
+		Student s = new Student();
+		s.setName("小明");
+		s.setAge(24);
+		System.out.println(s.getName()+"---"+s.getAge());
+	}
+}
+
+习题二：
+public class Person{
+	private String name;//成员变量
+	private int age;
+	Person(){} //默认，可以不写
+	Person(String name){//局部变量
+		this.name=name;//1.用"this.成员变量名称"和重名的局部变量区分开来
+	}
+	Person(String name,int age){
+		this(name);
+		this.age=age;
+	}
+	String getInfo(){//成员方法
+		return "姓名：" + name + "\n年龄：" + age;
+	}
+	void print(){
+		System.out.println(this.getInfo());//2.用"this.成员方法名"访问成员方法。
+		System.out.println(getInfo());//这种情况this关键字一般不写，让编译器自动添加。
+	}
+}
+public class Student2{
+	public static void main(String[] args){
+		Person p=new Person("张三",33);
+		p.print();
+	}
+}
+
+习题三：
+public class StudentsBean implements java.io.Serializable{
+   private String firstName = null;
+   private String lastName = null;
+   private int age = 0;
+
+   public StudentsBean() {
+   }
+   public String getFirstName(){
+      return firstName;
+   }
+   public String getLastName(){
+      return lastName;
+   }
+   public int getAge(){
+      return age;
+   }
+
+   public void setFirstName(String firstName){
+      this.firstName = firstName;
+   }
+   public void setLastName(String lastName){
+      this.lastName = lastName;
+   }
+   public void setAge(int age) {
+      this.age = age;
+   }
+}
