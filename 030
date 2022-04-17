@@ -1,0 +1,111 @@
+习题1：
+A a1 = new A();  
+        A a2 = new B();  
+        B b = new B();  
+        C c = new C();   
+        D d = new D();   
+        System.out.println(a1.show(b));     
+        System.out.println(a1.show(c));     
+        System.out.println(a1.show(d));     
+        System.out.println(a2.show(b));     
+        System.out.println(a2.show(c));     
+        System.out.println(a2.show(d));     
+        System.out.println(b.show(b));      
+        System.out.println(b.show(c));      
+        System.out.println(b.show(d));    
+习题2：
+class SuperClass {
+  private int n;
+  SuperClass(){
+    System.out.println("SuperClass()");
+  }
+  SuperClass(int n) {
+    System.out.println("SuperClass(int n)");
+    this.n = n;
+  }
+}
+// SubClass 类继承
+class SubClass extends SuperClass{
+  private int n;
+  
+  SubClass(){ // 自动调用父类的无参数构造器
+    System.out.println("SubClass");
+  }  
+  
+  public SubClass(int n){ 
+    super(300);  // 调用父类中带有参数的构造器
+    System.out.println("SubClass(int n):"+n);
+    this.n = n;
+  }
+}
+// SubClass2 类继承
+class SubClass2 extends SuperClass{
+  private int n;
+  
+  SubClass2(){
+    super(300);  // 调用父类中带有参数的构造器
+    System.out.println("SubClass2");
+  }  
+  
+  public SubClass2(int n){ // 自动调用父类的无参数构造器
+    System.out.println("SubClass2(int n):"+n);
+    this.n = n;
+  }
+}
+public class TestSuperSub{
+  public static void main (String args[]){
+    System.out.println("------SubClass 类继承------");
+    SubClass sc1 = new SubClass();
+    SubClass sc2 = new SubClass(100); 
+    System.out.println("------SubClass2 类继承------");
+    SubClass2 sc3 = new SubClass2();
+    SubClass2 sc4 = new SubClass2(200); 
+  }
+}
+
+习题3
+public class Test {
+    public static void main(String[] args) {
+      show(new Cat());  // 以 Cat 对象调用 show 方法
+      show(new Dog());  // 以 Dog 对象调用 show 方法
+                
+      Animal a = new Cat();  // 向上转型  
+      a.eat();               // 调用的是 Cat 的 eat
+      Cat c = (Cat)a;        // 向下转型  
+      c.work();        // 调用的是 Cat 的 work
+  }  
+            
+    public static void show(Animal a)  {
+      a.eat();  
+        // 类型判断
+        if (a instanceof Cat)  {  // 猫做的事情 
+            Cat c = (Cat)a;  
+            c.work();  
+        } else if (a instanceof Dog) { // 狗做的事情 
+            Dog c = (Dog)a;  
+            c.work();  
+        }  
+    }  
+}
+ 
+abstract class Animal {  
+    abstract void eat();  
+}  
+  
+class Cat extends Animal {  
+    public void eat() {  
+        System.out.println("吃鱼");  
+    }  
+    public void work() {  
+        System.out.println("抓老鼠");  
+    }  
+}  
+  
+class Dog extends Animal {  
+    public void eat() {  
+        System.out.println("吃骨头");  
+    }  
+    public void work() {  
+        System.out.println("看家");  
+    }  
+}
