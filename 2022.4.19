@@ -1,0 +1,98 @@
+习题1
+public class Child extends Parent {
+    private int c1=21;
+    public int c2=22;
+    private void cm1(){
+        System.out.println("in cm1()c1="+c1);
+    }
+    public void cm2(){
+        System.out.println("in cm2()c2="+c2);
+    }
+
+    public static void main(String[] args) {
+        int i;
+        Parent p=new Parent();
+        i=p.f2;
+        p.fm2();
+        Child c=new Child();
+        i=c.c1;
+        c.cm1();
+
+    }
+
+}
+
+
+public class Parent {
+    private int f1=1;
+    int f2=2;
+    protected int f3=3;
+    public int f4=4;
+    private void fm1(){
+        System.out.println("in fm1()f1="+f1);
+    }
+    void fm2(){
+        System.out.println("in fm2()dm="+f2);
+    }
+    protected void fm3(){
+        System.out.println("in fm3()f3="+f3);
+    }
+    public void fm4(){
+        System.out.println("in fm4()f4="+f4);
+    }
+}
+
+练习2：
+public class Cylinder extends Circle {
+    double length;
+    double Volume;
+    Cylinder(){
+        length=1;
+    }
+    public void setLength(double length){
+        this.length=length;
+    }
+    public double getLength(){
+        return length;
+    }
+    public double findVolume(){
+        Volume=area*length;
+        return Volume;
+    }
+}
+
+
+public class Circle {
+    double radius;
+    double area;
+    Circle(){
+        radius=0;
+    }
+    public void setRadius(double radius){
+        this.radius=radius;
+    }
+    public double getRadius(){
+        return this.radius;
+    }
+    public double findArea(){
+        area=3.14*radius*radius;
+        return area;
+    }
+}
+
+
+
+public class TestCylinder {
+    public static void main(String[] args) {
+        Circle c1=new Circle();
+        c1.setRadius(4);
+        System.out.println("半径为"+c1.getRadius()+"圆的面积为："+c1.findArea());
+        Cylinder C1=new Cylinder();
+        C1.radius=4;
+        C1.length=2;
+        C1.findArea();
+        C1.findVolume();
+        System.out.println("半径为"+C1.getRadius()+",高为"+C1.getLength()+"的圆柱的体积为："+C1.findVolume());
+    }
+}
+
