@@ -1,0 +1,95 @@
+习题1
+public class SPTest {
+    public static void main(String[] args) {
+        Person e=new Student();
+        ((Student) e).school="寿光一中";
+        System.out.println(((Student) e).school);
+
+        Person p=new Person();
+        p=new Student();
+        ((Student) p).school="寿光二中";
+        System.out.println(((Student) p).school);
+
+        Student s=new Student();
+        s.school="寿光三中";
+        System.out.println(s.school);
+    }
+}
+
+习题2：
+public class Person {
+    String name;
+    int age;
+    int sex;
+
+    public void showInfo(){
+        System.out.println("以下是Person类的showInfo方法的重写");
+        System.out.println(this.name);
+        System.out.println(this.age);
+        System.out.println(this.sex);
+    }
+
+    public void setInfo(String name,int age,int sex){
+        this.name=name;
+        this.age=age;
+        this.sex=sex;
+    }
+}
+
+
+public class Student extends Person{
+    String school;
+
+    @Override
+    public void showInfo(){
+        System.out.println("以下是Student类的showInfo方法的重写");
+        System.out.println(this.name);
+        System.out.println(this.age);
+        System.out.println(this.sex);
+    }
+
+    @Override
+    public void setInfo(String name,int age,int sex){
+        this.name=name;
+        this.age=age;
+        this.sex=sex;
+    }
+}
+
+
+public class SPTest {
+    public static void main(String[] args) {
+       Student s=new Student();
+       s.setInfo("周星星",1,25);
+       s.showInfo();
+       Person p=new Person();
+       p.setInfo("史泰龙",1,68);
+       p.showInfo();
+       Person e=new Student();
+       e.setInfo("陈港生",1,66);
+       e.showInfo();
+       p=new Student();
+       p.setInfo("周润发",1,67);
+       p.showInfo();
+    }
+}
+
+
+习题三：
+public class SPTest {
+    public static void main(String[] args) {
+       Student s=new Student();
+       Person p=new Person();
+       Person e=new Student();
+       Person o=new Person();
+       o=new Student();
+        System.out.println(s instanceof Person);
+        System.out.println(p instanceof Person);
+        System.out.println(p instanceof Student);
+        System.out.println(e instanceof Student);
+        System.out.println(e instanceof Person);
+        System.out.println(o instanceof Student);
+        System.out.println(o instanceof Person);
+
+    }
+}
