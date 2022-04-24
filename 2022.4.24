@@ -1,0 +1,50 @@
+习题一：
+public class Test {
+    public void test(Object obj){
+
+    }
+
+    public static void main(String[] args) {
+        Test T=new Test();
+        Person P=new Person();
+        Student S=new Student();
+        T.test(123456);
+        T.test("root");
+        T.test(new Student());
+    }
+}
+习题二：
+public boolean equals(Object anObject) {
+	if (this == anObject) {
+		return true;
+	}
+	if (anObject instanceof String) {
+		String anotherString = (String) anObject;
+		int n = value.length;
+		if (n == anotherString.value.length) {
+			char v1[] = value;
+			char v2[] = anotherString.value;
+			int i = 0;
+			while (n-- != 0) {
+				if (v1[i] != v2[i])
+						return false;
+				i++;
+			}
+			return true;
+		}
+	}
+	return false;
+}
+
+习题三
+public class Java_epuals {
+    public static void main(String[] args) {
+        Integer i2 = 10;
+        Integer i3 = 10;
+        System.out.println(i2 == i3); // true
+
+        Integer i4 = 128;
+        Integer i5 = 128;
+        System.out.println(i4 == i5); // false
+    }
+}
