@@ -1,0 +1,43 @@
+习题一：
+
+public class Test {
+
+    static Value v1, v2;//静态变量
+    static {//此即为static块
+        prt("v1.c=" + v1.c + "  v2.c=" + v2.c);
+        v1 = new Value(27);//New了一个Value3的实例
+        prt("v1.c=" + v1.c + "  v2.c=" + v2.c);
+        v2 = new Value(15);
+        prt("v1.c=" + v1.c + "  v2.c=" + v2.c);
+    }
+    Value v = new Value(10);
+    public static void prt(String s) {//定义了一个静态方法
+        System.out.println(s);
+    }
+    public static void main(String[] args) {//主方法
+        Test ct = new Test();
+        prt("ct.c=" + ct.v.c);
+        prt("v1.c=" + v1.c + "  v2.c=" + v2.c);
+        v1.inc();
+        prt("v1.c=" + v1.c + "  v2.c=" + v2.c);
+        prt("ct.c=" + ct.v.c);
+
+    }
+}
+
+
+public class Value {
+    static int c = 0;
+    //无参构造方法
+    Value() {
+        c = 15;
+    }
+    //有参构造方法
+    Value(int i) {
+        c = i;
+    }
+    //静态方法
+    static void inc() {
+        c++;
+    }
+}
