@@ -1,0 +1,126 @@
+习题一：
+public class Test {
+    public static void main(String[] args) {
+        Chinese c=new Chinese();
+        Chinese.country="China";
+//        c.country="China";
+        c.name="小糖人";
+        c.age=19;
+
+        /*使用方法，使国际只写一次即可*/
+
+        Chinese c1=new Chinese();
+//        c1.country="China";
+        c1.name="小糖人";
+        c1.age=19;
+        Chinese c2=new Chinese();
+//        c2.country="China";
+        c2.name="小糖人";
+        c2.age=19;
+
+        System.out.println(c.country);
+        System.out.println(c1.country);
+        System.out.println(c2.country);
+        System.out.println(Chinese.country);
+        Chinese.text();
+    }
+}
+
+
+
+
+public class Chinese {
+    static String country;
+    String name;
+    int age;
+
+    public static void text(){
+        System.out.println("这是一个静态方法");
+    }
+}
+
+
+
+
+练习2：
+public class Utils {
+    //判断字符串是不是一个空字符串
+    public static boolean isnull(String s){
+        boolean flag=false;
+        if(s!=null&&s.equals("")) {
+            flag=true;
+        }
+        return flag;
+    }
+}
+
+
+
+public class Test {
+    public static void main(String[] args) {
+        String s="10086";
+        String s1="";
+        String s2="null";
+        System.out.println(Utils.isnull(s));
+        System.out.println(Utils.isnull(s1));
+        System.out.println(Utils.isnull(s2));
+    }
+}
+
+
+练习3：
+public class Test {
+    public static void main(String[] args) {
+        Chinese c0=new Chinese();
+        Chinese c1=new Chinese();
+        Chinese c2=new Chinese();
+        Chinese c3=new Chinese();
+        Chinese c4=new Chinese();
+        Chinese c5=new Chinese();
+        Chinese c6=new Chinese();
+        Chinese.showCount();
+    }
+}
+
+
+
+public class Chinese {
+    public Chinese(){
+        this.count+=1;
+    }
+    static String country;
+    public static int count;//计数
+    String name;
+    int age;
+
+    public static void showCount(){
+        System.out.println("总共new了"+Chinese.count+"个对象");
+    }
+}
+
+
+练习4
+public class Person {
+    private int id;
+    public static int total=0;
+    public Person(){
+        total++;
+        id=total;
+    }
+
+    public static void main(String[] args) {
+        Person tom=new Person();
+        tom.id=0;
+        total=100;
+    }
+}
+
+
+public class OtherClas {
+    public static void main(String[] args) {
+        Person.total=100;
+        System.out.println(Person.total);
+        Person c=new Person();
+        System.out.println(c.total);
+    }
+}
