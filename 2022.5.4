@@ -1,0 +1,75 @@
+习题一：
+/**实现一个饿汉式的单例模式**/
+
+public class Single {
+//    public Single(){
+//        //假设构造中要执行1000行代码，要占用很大的资源，耗时很长（10秒）
+//        //new Single对象需要10秒钟，运行1000行代码
+//        //像这种情况，就适合使用单例模式。只new一次对象，以后一直使用这个对象
+//
+//    }
+
+    //私有的构造,构造方法私有化，调用这个类的人就不能直接使用new来创建对象
+    private Single(){
+
+    }
+
+    //私有的Single类型的类变量
+    private static Single single=new Single();
+
+    public static Single getInstance(){
+        return single;
+    }
+}
+
+
+public class Test {
+    public static void main(String[] args) {
+
+        /* 饿汉式单例模式*/
+       Single s0=Single.getInstance();
+       Single s1=Single.getInstance();
+       Single s2=Single.getInstance();
+       Single s3=Single.getInstance();
+       Single s4=Single.getInstance();
+       Single s5=Single.getInstance();
+
+    }
+}
+
+
+
+
+
+
+例题2：
+/**懒汉式单例模式**/
+public class Single1 {
+    //先私有化构造方法，让外边不能直接new对象
+    private Single1(){
+
+    }
+    private static Single1 s1=null;
+    public static Single1 getInstance(){
+        if(s1==null){
+            s1=new Single1();
+        }
+        return s1;
+    }
+}
+
+
+
+public class Test {
+    public static void main(String[] args) {
+
+        /* 懒汉式单例模式*/
+        Single1 s0=Single1.getInstance();
+        Single1 s1=Single1.getInstance();
+        Single1 s2=Single1.getInstance();
+        Single1 s3=Single1.getInstance();
+        Single1 s4=Single1.getInstance();
+
+
+    }
+}
